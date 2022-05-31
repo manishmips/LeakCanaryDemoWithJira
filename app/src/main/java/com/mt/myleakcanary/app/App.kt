@@ -5,6 +5,7 @@ import android.os.Build
 import android.text.TextUtils
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.mt.leakcanarysample.LeakCanaryUploaderInit
+import com.mt.myleakcanary.util.Util
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -17,6 +18,7 @@ class App:Application() {
         val client = OkHttpClient.Builder()
             .addInterceptor(ChuckerInterceptor(this))
             .build()
+        Util.findTwoMissingNumbers(intArrayOf(1, 2, 3, 4,5, 6,9,10), 10)
     }
     private fun getHeadersInterceptor(): Interceptor? {
         return Interceptor { chain1: Interceptor.Chain ->
